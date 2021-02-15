@@ -1,40 +1,46 @@
 package top.zcwfeng.compose.mydemo
 
 import android.os.Bundle
-import androidx.annotation.DrawableRes
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.AmbientAnimationClock
 import androidx.compose.ui.platform.setContent
-import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.viewinterop.viewModel
+import androidx.lifecycle.ViewModel
+import top.zcwfeng.compose.mydemo.ui.*
 import top.zcwfeng.compose.mydemo.ui.theme.MyDemoTheme
 
 class MainActivity : AppCompatActivity() {
+    val viewModel: WeViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyDemoTheme {
-               Column {
-                   Row {
-                       TabItem(R.drawable.ic_launcher_background,"我的")
-                   }
-               }
+
+            MyDemoTheme(viewModel.theme) {
+                Box {
+                    Home()
+                    ChatPage()
+                }
+
             }
         }
     }
 
-    @Composable
-    private fun TabItem(@DrawableRes iconId:Int,title:String) {
-        Column {
-
-            Icon(vectorResource(iconId))
-            Text(title)
+    override fun onBackPressed() {
+        if(viewModel.chatting){
+            viewModel.endChat()
+        } else{
+            super.onBackPressed()
         }
+
     }
+
+
+
 }
