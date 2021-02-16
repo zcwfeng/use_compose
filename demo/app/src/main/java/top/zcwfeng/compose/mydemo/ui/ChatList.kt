@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
@@ -14,27 +13,48 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Paint
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.viewModel
 import com.rengwuxian.wecompose.data.Chat
+import com.rengwuxian.wecompose.data.Msg
+import com.rengwuxian.wecompose.data.User
+import top.zcwfeng.compose.mydemo.R
 import top.zcwfeng.compose.mydemo.WeViewModel
+import top.zcwfeng.compose.mydemo.ui.theme.MyDemoTheme
 import top.zcwfeng.compose.mydemo.ui.theme.WeTheme
+import top.zcwfeng.compose.mydemo.unread
+
+@Composable
+fun ChatListTopBar() {
+    WeTopBar(title = "zcwfeng之信")
+}
+
+
+@Composable
+fun ChatList(viewModel: WeViewModel = viewModel()) {
+    Column(Modifier.fillMaxSize()) {
+        ChatListTopBar()
+        Box(
+            Modifier
+                .background(WeTheme.colors.background)
+                .fillMaxSize()
+        ) {
+            ChatList(chats = viewModel.chats)
+        }
+    }
+}
 
 @Composable
 fun ChatList(chats: List<Chat>) {
-    Column (Modifier.background(WeTheme.colors.background)) {
-        WeTopBar(title = "zcwfeng信")
+    Column(Modifier.background(WeTheme.colors.background)) {
         LazyColumn(
             Modifier
                 .background(WeTheme.colors.listItem)
-                .fillMaxSize()) {
+                .fillMaxSize()
+        ) {
             itemsIndexed(chats) { index, chat ->
                 ChatListItem(chat)
                 if (index < chats.size - 1) {
@@ -50,8 +70,11 @@ fun ChatList(chats: List<Chat>) {
 }
 
 @Composable
-private fun ChatListItem(chat: Chat) {
-    var viewModel:WeViewModel = viewModel()
+private fun ChatListItem(
+    chat: Chat,
+    modifier: Modifier = Modifier,
+    viewModel: WeViewModel = viewModel()
+) {
     Row(
         Modifier
             .clickable {
@@ -60,11 +83,11 @@ private fun ChatListItem(chat: Chat) {
             .fillMaxWidth()
     ) {
         Image(
-            imageVector = vectorResource(id = chat.friend.avatar),
-            contentDescription = chat.friend.name,
+            vectorResource(id = chat.friend.avatar),
+            contentDescription = chat.friend.name,/*"avatar"*/
             Modifier
                 .size(48.dp)
-                .padding(8.dp)
+                .padding(12.dp, 8.dp, 8.dp, 8.dp)
                 .unread(!chat.msgs.last().read, WeTheme.colors.badge)
                 .clip(RoundedCornerShape(4.dp))
         )
@@ -86,7 +109,7 @@ private fun ChatListItem(chat: Chat) {
 //                    Modifier.padding(8.dp, 8.dp, 12.dp, 8.dp),
 //                    fontSize = 11.sp, color = WeTheme.colors.textSecondary
 //                )
-
+// TODO: 2021/2/16 chat.msgs.last().time <---13:48
         Text(
             "13:48",
             Modifier.padding(8.dp, 8.dp, 12.dp, 8.dp),
@@ -97,20 +120,17 @@ private fun ChatListItem(chat: Chat) {
 
 
 
-fun Modifier.unread(show: Boolean, bagdgeColor: Color) = this.drawWithContent {
-    drawContent()
-    if (show) {
-        drawIntoCanvas { canvas ->
-            val paint = Paint().apply {
-                color = bagdgeColor
-            }
-            canvas.drawCircle(
-                Offset(
-                    size.width - 1.dp.toPx(),
-                    1.dp.toPx()
+
+@Preview(showBackground = true)
+@Composable
+fun ChatListItemPreview() {
+    MyDemoTheme {
+        Box {
+            ChatListItem(
+                Chat(
+                    friend = User("zcwfeng", "起灵老师", R.drawable.avatar_1),
+                    mutableListOf(Msg(User("zcwfeng", "起灵老师", R.drawable.avatar_1), "哈哈"))
                 ),
-                5.dp.toPx(),
-                paint
             )
         }
     }

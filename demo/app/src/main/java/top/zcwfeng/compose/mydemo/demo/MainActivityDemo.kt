@@ -1,4 +1,4 @@
-package top.zcwfeng.compose.mydemo
+package top.zcwfeng.compose.mydemo.demo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
