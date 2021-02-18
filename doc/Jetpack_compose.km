@@ -1,0 +1,102 @@
+{
+    "root": {
+        "data": {
+            "id": "c9bnodw31js0",
+            "created": 1613549828097,
+            "text": "Jetpack compose",
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c9bnok1f8000",
+                    "created": 1613549841480,
+                    "text": "compose.animation",
+                    "note": "在其Jetpack Compose应用程序中制作动画，以丰富用户体验。",
+                    "layout_mind_offset": {
+                        "x": -82,
+                        "y": -28
+                    }
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c9bnp3t02740",
+                    "created": 1613549884507,
+                    "text": "compose.compiler",
+                    "note": "转换@Composable函数并使用Kotlin编译器插件启用优化。",
+                    "layout_mind_offset": {
+                        "x": -78,
+                        "y": 0
+                    }
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c9bnp4hdk9c0",
+                    "created": 1613549885980,
+                    "text": "compose.foundation",
+                    "layout_mind_offset": {
+                        "x": -71,
+                        "y": 28
+                    },
+                    "note": "编写具有可立即使用的构建基块的Jetpack Compose应用程序，并扩展基础以构建您自己的设计系统。"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c9bnp5g8x940",
+                    "created": 1613549888089,
+                    "text": "compose.runtime",
+                    "layout_mind_offset": {
+                        "x": 63,
+                        "y": 69
+                    },
+                    "note": "\nCompose编程模型和状态管理的基本构建模块，以及Compose Compiler插件所针对的核心运行时。 "
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c9bnp614a140",
+                    "created": 1613549889351,
+                    "text": "compose.ui",
+                    "layout_mind_offset": {
+                        "x": 62,
+                        "y": 100
+                    },
+                    "note": "与设备进行交互所需的撰写用户界面的基本组件，包括布局，图形和输入。"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c9bnp4zhmhs0",
+                    "created": 1613549887076,
+                    "text": "compose.material",
+                    "layout_mind_offset": {
+                        "x": 73,
+                        "y": -165
+                    },
+                    "note": "使用可立即使用的Material Design组件构建Jetpack Compose UI。 这是Compose的更高级别的入口点，旨在提供与www.material.io中描述的组件匹配的组件。"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c9bpm8o03ko0",
+                            "created": 1613555302216,
+                            "text": "Text"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

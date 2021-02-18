@@ -70,11 +70,11 @@ private fun TabItem(@DrawableRes iconId: Int, title: String, color: Color, modif
 }
 
 
-//@Preview(showBackground = true)
-//@Composable
-//fun TabItemPreview() {
-//    TabItem(iconId = R.drawable.ic_chat_filled, title = "我的", WeTheme.colors.icon)
-//}
+@Preview(showBackground = true)
+@Composable
+fun TabItemPreview() {
+    TabItem(iconId = R.drawable.ic_chat_filled, title = "我的", WeTheme.colors.icon)
+}
 
 @Preview(showBackground = true)
 @Composable
@@ -84,18 +84,18 @@ fun WeBottomBarPreView() {
     }
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun WeBottomBarPreViewDark() {
-//    MyDemoTheme(WeTheme.Theme.Dark) {
-//        WeBottomBar(selected = 0)
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun WeBottomBarPreViewDark() {
+    MyDemoTheme(WeTheme.Theme.Dark) {
+        WeBottomBar(selected = 0)
+    }
+}
 
-//@Preview(showBackground = true)
-//@Composable
-//fun WeBottomBarPreViewNewYear() {
-//    MyDemoTheme(WeTheme.Theme.NewYear) {
-//        WeBottomBar(selected = 1)
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun WeBottomBarPreViewNewYear() {
+    MyDemoTheme(WeTheme.Theme.NewYear) {
+        WeBottomBar(selected = 1)
+    }
+}
