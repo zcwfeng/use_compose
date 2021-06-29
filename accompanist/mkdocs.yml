@@ -1,0 +1,83 @@
+# Project information
+site_name: 'Accompanist'
+site_description: 'A group of libraries to help write Jetpack Compose apps.'
+site_author: 'Google'
+site_url: 'https://google.github.io/accompanist/'
+edit_uri: 'tree/main/docs/'
+remote_branch: gh-pages
+
+docs_dir: docs-gen
+
+# Repository
+repo_name: 'Accompanist'
+repo_url: 'https://github.com/google/accompanist'
+
+# Navigation
+nav:
+  - 'Overview': index.md
+  - 'Coil':
+    - 'Guide': coil.md
+    - 'API': api/coil/
+    - 'Migration from CoilImage': coil/migration-coilimage.md
+  - 'Glide':
+    - 'Guide': glide.md
+    - 'API': api/glide/
+    - 'Migration from GlideImage': glide/migration-glideimage.md
+  - 'Image Loading Core':
+    - 'API': api/imageloading-core/
+  - 'Insets':
+    - 'Guide': insets.md
+    - 'API': api/insets/
+  - 'System UI Controller':
+    - 'Guide': systemuicontroller.md
+    - 'API': api/systemuicontroller/
+  - 'AppCompat Theme':
+    - 'Guide': appcompat-theme.md
+    - 'API': api/appcompat-theme/
+  - 'Pager layouts':
+    - 'Guide': pager.md
+    - 'API': api/pager/
+  - 'Swipe Refresh':
+    - 'Guide': swiperefresh.md
+    - 'API': api/swiperefresh/
+  - 'Placeholder':
+    - 'Guide': placeholder.md
+    - 'Foundation API': api/placeholder/
+    - 'Material API': api/placeholder-material/    
+  - 'Flow layouts':
+    - 'Guide': flowlayout.md
+    - 'API': api/flowlayout/
+  - 'Permissions':
+    - 'Guide': permissions.md
+    - 'API': api/permissions/
+  - 'Snapshots': using-snapshot-version.md
+  - 'Contributing': contributing.md
+  - 'Maintainers':
+    - 'Update guide': updating.md
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  icon:
+    logo: material/music-clef-treble
+  palette:
+    primary: 'black'
+    accent: 'deep orange'
+  font:
+    text: 'Roboto'
+    code: 'JetBrains Mono'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details

@@ -238,3 +238,13 @@ private val NewYearColorPalette = WeColors(
 private val AmbientWeColors = ambientOf {
     LightColorPalette
 }
+
+@Composable
+fun BasicsCodelabTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+
+    // TODO
+}
+
